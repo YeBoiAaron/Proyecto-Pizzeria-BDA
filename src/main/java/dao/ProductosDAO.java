@@ -31,7 +31,7 @@ public class ProductosDAO implements IProductosDAO {
     public boolean agregar(Producto producto) {
         try {
             Connection c = conexion.crearConexion();
-            String insertar = "INSERT INTO producctos (nombre, descripcion, precio) VALUES (?, ?, ?)";
+            String insertar = "INSERT INTO productos (nombre, descripcion, precio) VALUES (?, ?, ?)";
             PreparedStatement i = c.prepareStatement(insertar, Statement.RETURN_GENERATED_KEYS);
             i.setString(1, producto.getNombre());
             i.setString(2, producto.getDescripcion());
@@ -119,9 +119,9 @@ public class ProductosDAO implements IProductosDAO {
             PreparedStatement b = c.prepareStatement(buscarProductos);
             
             ResultSet resultado = b.executeQuery();
-            Producto p = new Producto();
             
             while(resultado.next()) {
+                Producto p = new Producto();
                 p.setId(resultado.getInt("id"));
                 p.setNombre(resultado.getString("nombre"));
                 p.setDescripcion(resultado.getString("descripcion"));
