@@ -5,9 +5,6 @@
 package com.mycompany.pizzeriajpa;
 
 import java.sql.Date;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
